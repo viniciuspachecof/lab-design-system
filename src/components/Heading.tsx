@@ -6,9 +6,10 @@ export interface IHeading {
   size?: 'sm' | 'md' | 'lg';
   children: ReactNode;
   asChild?: boolean;
+  className?: string
 }
 
-export const Heading = ({ size = 'md', children, asChild }: IHeading) => {
+export const Heading = ({ size = 'md', children, asChild, className }: IHeading) => {
   const Comp = asChild ? Slot : 'h2';
 
   return (
@@ -16,6 +17,6 @@ export const Heading = ({ size = 'md', children, asChild }: IHeading) => {
       'text-lg': size === 'sm',
       'text-xl': size === 'md',
       'text-2xl': size === 'lg',
-    })}>{ children }</Comp>
+    }, className)}>{ children }</Comp>
   )
 }
